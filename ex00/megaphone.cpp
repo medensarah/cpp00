@@ -15,7 +15,7 @@ int	main(int ac, char **av)
 		y = 0;
 		while (av[i][y])
 		{
-			std::cout << (char)toupper(av[i][y]); 
+			std::cout << (char)std::toupper(av[i][y]); 
 			y++;
 		}
 		i++;

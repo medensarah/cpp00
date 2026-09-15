@@ -28,3 +28,85 @@ void	PhoneBook::displayTable()
 				<< "|" << std::endl;
 	}
 }
+
+void	PhoneBook::addContact()
+{
+	std::string	input;
+	Contact		newContact;
+
+	do
+	{
+		std::cout << "First Name: ";
+		std::getline(std::cin, input);
+	}
+	while (input.empty());
+	newContact.setFirstName(input);
+
+	do
+	{
+		std::cout << "Last Name: ";
+		std::getline(std::cin, input);
+	}
+	while (input.empty());
+	newContact.setLastName(input);
+
+	do
+	{
+		std::cout << "Nickname: ";
+		std::getline(std::cin, input);
+	}
+	while (input.empty());
+	newContact.setNickName(input);
+
+	do
+	{
+		std::cout << "Phone Number: ";
+		std::getline(std::cin, input);
+	}
+	while (input.empty());
+	newContact.setPhoneNumber(input);
+
+	do
+	{
+		std::cout << "Darkest Secret: ";
+		std::getline(std::cin, input);
+	}
+	while (input.empty());
+	newContact.setDarkestSecret(input);
+
+	contacts[index] = newContact;
+	index = (index + 1) % 8;
+	if (count < 8)
+		count++;
+}
+
+void	PhoneBook::searchContact()
+{
+	std::string input;
+	int			index;
+
+	if (count == 0)
+	{
+		std::cout << "No contacts created." << std::endl;
+		return ;
+	}
+
+	displayTable();
+
+	std::cout << "Enter index: ";
+	std::getline(std::cin, input);
+
+	if (input.empty() || input.length() != 1 || !std::isdigit(input[0]))
+	{
+		std::cout << "Invalid index." << std::endl;
+		return ;
+	}
+	index = atoi(input.c_str());
+	if (index >= count)
+	{
+		std::cout << "Invalid index." << std::endl;
+		return ;
+	}
+
+	contacts[index].displayContact();
+}
