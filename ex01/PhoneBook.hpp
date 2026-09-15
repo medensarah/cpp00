@@ -13,8 +13,9 @@ class	PhoneBook
 		int			count;
 		Contact		contacts[8];
 
-		void		displayTable();
 		std::string	truncateDot(const std::string &str) const;
+		
+		void		displayTable();
 
 	public:
 		PhoneBook();
