@@ -8,7 +8,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) PhoneBook.hpp Contact.hpp
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
